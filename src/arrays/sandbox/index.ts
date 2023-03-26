@@ -88,4 +88,28 @@ function bubbleSort(arr: number[]) {
   console.log(arr);
 }
 
-bubbleSort([1, 3, 2, 4, 7, 31, 7, 8]);
+function merge(left, right) {
+  const res = [];
+  while (left.length && right.length) {
+    if (left[0] <= right[0]) {
+      res.push(left.shift());
+    } else {
+      res.push(right.shift());
+    }
+  }
+  return res.concat(left,right);
+}
+
+function mergeSort(arr: number[]) {
+  let length = arr.length;
+  if (length < 2) return arr;
+  let mid = Math.floor(length / 2);
+  let leftArr = arr.slice(0, mid);
+  let rightArr = arr.slice(mid);
+  let sortedLeft = mergeSort(leftArr);
+  let sortedRight = mergeSort(rightArr);
+  return merge(sortedLeft, sortedRight);
+}
+
+
+export {};
