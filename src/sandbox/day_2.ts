@@ -52,4 +52,33 @@ function mergeSort(arr: number[]) {
   return merge(sortedLeft, sortedRight);
 }
 
+class Node {
+  value: string;
+  next: Node | null;
+  constructor(value: string) {
+    this.value = value;
+    this.next = null;
+  }
+}
+class NodeList {
+  head: Node | null;
+  length: number;
+  constructor() {
+    this.head = null;
+    length = 0;
+  }
+  push(value) {
+    let newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+    } else {
+      let current = this.head;
+      while (current.next) {
+        current = current.next;
+      }
+      current.next = newNode;
+    }
+  }
+}
+
 export {};
