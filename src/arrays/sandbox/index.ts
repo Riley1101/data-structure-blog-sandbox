@@ -97,7 +97,7 @@ function merge(left, right) {
       res.push(right.shift());
     }
   }
-  return res.concat(left,right);
+  return res.concat(left, right);
 }
 
 function mergeSort(arr: number[]) {
@@ -111,5 +111,22 @@ function mergeSort(arr: number[]) {
   return merge(sortedLeft, sortedRight);
 }
 
+function quickSort(arr: number[]) {
+  if (arr.length < 2) return arr;
+  let pivot = arr[arr.length - 1];
+  let left = []
+  let right = []
+  for (let i = 0; i < arr.length - 1; i++) {
+    if(arr[i]< pivot){
+       left.push(arr[i]) 
+    }else{
+        right.push(arr[i])
+    }
+  }
+  let sortedLeft = quickSort(left)
+  let sortedRight = quickSort(right)
+  return sortedLeft.concat(pivot, sortedRight)
+}
 
+console.log(quickSort([1,4,2,6,12,8,9,12,65,12,1,21]))
 export {};
