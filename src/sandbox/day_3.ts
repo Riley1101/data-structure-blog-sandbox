@@ -52,24 +52,79 @@ function mergeSort(arr) {
   return merge(sortedLeft, sortedRight);
 }
 
-function quickSort(arr){
-    if(arr.length < 2 ) return arr;
-    let length = arr.length;
-    let pivot = arr[length - 1];
-    let mid = Math.floor(length / 2)
-    let leftArr = []
-    let rightArr = []
-    for(let i =0; i < arr.length - 1; i++ ){
-        if(arr[i] > pivot){
-            rightArr.push(arr[i])
-        }else{
-            leftArr.push(arr[i])
-        }
+function quickSort(arr) {
+  if (arr.length < 2) return arr;
+  let length = arr.length;
+  let pivot = arr[length - 1];
+  let mid = Math.floor(length / 2);
+  let leftArr = [];
+  let rightArr = [];
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] > pivot) {
+      rightArr.push(arr[i]);
+    } else {
+      leftArr.push(arr[i]);
     }
-    let sortedLeft = quickSort(leftArr)
-    let sortedRight = quickSort(rightArr)
-    return sortedLeft.concat(pivot, sortedRight)
+  }
+  let sortedLeft = quickSort(leftArr);
+  let sortedRight = quickSort(rightArr);
+  return sortedLeft.concat(pivot, sortedRight);
 }
 
-console.log(quickSort([1,3,4,2,4,6,2,1]))
+function binarySearch(arr, target) {
+  let left = 0;
+  let right = arr.length;
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+    if (target === arr[mid]) {
+      console.log(arr[mid]);
+      return mid;
+    }
+    if (target > arr[mid]) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+}
+
+class Stack {
+  top: number;
+  data: string[];
+  size: number;
+  constructor() {
+    this.top = -1;
+    this.size = 0;
+    this.data = [];
+  }
+  private _resize() {
+    if (this.top === this.size) {
+      this.size = (this.size + 1) * 2;
+    }
+  }
+  push(value) {
+    this._resize();
+    this.top = this.top + 1;
+    this.data[this.top] = value;
+  }
+  pop() {
+    let tmp = this.data[this.top];
+    this.data[this.top] = null;
+    this.top = this.top - 1;
+    return tmp;
+  }
+}
+
+let s1 = new Stack();
+s1.push("Hello");
+s1.push("Stack");
+s1.push("I");
+s1.push("Live");
+s1.push("In");
+s1.push("World");
+s1.push("dumb")
+s1.pop()
+
+s1.push("dumb")
+console.log(s1);
 export {};

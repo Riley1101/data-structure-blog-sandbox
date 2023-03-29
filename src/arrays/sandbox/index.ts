@@ -128,5 +128,5 @@ function quickSort(arr: number[]) {
   return sortedLeft.concat(pivot, sortedRight)
 }
 
-console.log(quickSort([1,4,2,6,12,8,9,12,65,12,1,21]))
+
 export {};
