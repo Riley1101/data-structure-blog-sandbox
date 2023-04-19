@@ -48,4 +48,22 @@ t1.push(2)
 t1.push(7)
 t1.push(9)
 t1.push(12)
+
+const preOrderTraverse = (node ,array) => {
+    if(!node ) return array;
+    array.push(node.value)
+    array = preOrderTraverse(node.left,array)
+    array = preOrderTraverse(node.right, array)
+    return array
+}
+console.log(preOrderTraverse(t1.root,[]))
+
+const postOrderTraverse = (node, array) =>{
+    if(!node) return array;
+    array = postOrderTraverse(node.left,array)
+    array = postOrderTraverse(node.right, array)
+    array.push(node.value)
+    return array
+}
+console.log(postOrderTraverse(t1.root,[]))
 export {}
