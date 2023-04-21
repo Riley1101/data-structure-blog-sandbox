@@ -66,4 +66,5 @@ const postOrderTraverse = (node, array) =>{
     return array
 }
 console.log(postOrderTraverse(t1.root,[]))
+
 export {}
