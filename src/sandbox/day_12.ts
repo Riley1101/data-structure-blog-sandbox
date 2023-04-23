@@ -47,7 +47,6 @@ tr.push(2)
 tr.push(4)
 tr.push(6)
 tr.push(5)
-console.log(tr.root)
 
 const preOrderTraveral = (node : Node, arr : number[])=>{
     if(!node) return arr;
@@ -56,7 +55,6 @@ const preOrderTraveral = (node : Node, arr : number[])=>{
     arr = preOrderTraveral(node.right,arr)
     return arr
 }
-console.log(preOrderTraveral(tr.root,[]))
 
 const inOrderTraversal= (node : Node, arr : number[])=>{
     if(!node) return arr;
@@ -65,7 +63,6 @@ const inOrderTraversal= (node : Node, arr : number[])=>{
     arr.push(node.value)
     return arr
 }
-console.log(inOrderTraversal(tr.root,[]))
 
 const postOrder= (node : Node, arr : number[])=>{
     if(!node) return arr;
@@ -74,6 +71,5 @@ const postOrder= (node : Node, arr : number[])=>{
     arr.push(node.value)
     return arr
 }
-console.log(postOrder(tr.root,[]))
 
 export {}
