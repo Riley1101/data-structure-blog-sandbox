@@ -46,6 +46,46 @@ tree.push(1)
 tree.push(8)
 tree.push(9)
 tree.push(10)
-console.log(tree)
 
+const arr = [5, 3, 2, 10, 1, 9, 8, 6, 4, 7]
+
+const heapSort = (array : number[])=>{
+   array = createMaxHeap(array)
+   for(let i = array.length - 1; i > 0 ; i --){
+        swapPlace(0,i,array)       
+        heapify(array,0,i)
+   }
+   return array  
+}
+
+const createMaxHeap = (array : number[])=>{
+    for(let i = Math.floor(array.length / 2 ) - 1; i >=0; i --){
+       heapify(array,i,array.length) 
+    }
+    return array
+}
+
+const swapPlace = (index1 : number,index2 : number,array:number[])=>{
+    let tmp = array[index1]
+    array[index1] = array[index2]
+    array[index2] = tmp
+    return array
+}
+
+const heapify = (array:number[],index:number,heapSize:number)=>{
+   let left = 2 * index + 1 
+   let right = 2 * index + 2
+   let largestValueIndex = index 
+   if(heapSize > left && array[largestValueIndex]< array[left]){
+       largestValueIndex = left
+   }
+   if(heapSize > right&& array[largestValueIndex]< array[right]){
+       largestValueIndex = right 
+   }
+   if(largestValueIndex !== index){
+       swapPlace(index,largestValueIndex,array)
+       heapify(array,largestValueIndex,heapSize)
+   }
+}
+console.log(heapSort(arr))
 export {}
