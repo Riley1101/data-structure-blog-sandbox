@@ -1,3 +1,2 @@
 function sayHi(params:number) {
-    
 }
