@@ -68,3 +68,22 @@ export function quick_sort(arr: number[]) {
   let sortedRight = quick_sort(rightArr);
   return sortedLeft.concat(pivot, sortedRight);
 }
+
+export function quick_sort_2(arr: number[]) {
+  if (arr.length < 2) return arr;
+  let length = arr.length;
+  let pivot = arr[0];
+  let leftArr = [];
+  let rightArr = [];
+  for (let i = 1; i < arr.length ; i++) {
+    if (arr[i] < pivot) {
+      leftArr.push(arr[i]);
+    } else {
+      rightArr.push(arr[i]);
+    }
+  }
+  let sortedLeft = quick_sort_2(leftArr);
+  let sortedRight = quick_sort_2(rightArr);
+  return sortedLeft.concat(pivot, sortedRight);
+}
+console.log(quick_sort_2([1,3,2,6,4,12,10]))
