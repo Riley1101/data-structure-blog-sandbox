@@ -156,7 +156,7 @@ const postOrderTraversals = (node: Node, arr: number[]) => {
   return arr;
 };
 
-function breadthFirstSearch(queue: Node[], arr) {
+export function breadthFirstSearch(queue: Node[], arr) {
   if (!queue.length) return arr;
 
   let node = queue.shift();
@@ -170,4 +170,46 @@ function breadthFirstSearch(queue: Node[], arr) {
   return breadthFirstSearch(queue, arr);
 }
 
-console.log(breadthFirstSearch([tree.root], []));
+class Queue {
+  size: number;
+  start: number;
+  last: number;
+  top: number;
+  constructor() {
+    this.size = 4;
+    this.start = -1;
+    this.last = -1;
+    this.top = -1;
+  }
+  queue(value: number) {}
+}
+
+function rec_binary(arr: number[], target) {
+  let start = 0;
+  let end = arr.length;
+  let mid = Math.floor((start + end) / 2);
+  if (arr[mid] === target) return mid;
+  if (target < arr[mid]) {
+    return rec_binary(arr.slice(0, mid), target);
+  } else {
+    return rec_binary(arr.slice(mid), target);
+  }
+}
+
+function rec_binary_slice(
+  arr: number[],
+  start: number,
+  end: number,
+  target: number
+) {
+  let mid = Math.floor((start + end) / 2);
+  if (arr[mid] === target) return mid;
+  if (target < arr[mid]) {
+    return rec_binary_slice(arr, start, mid - 1, target);
+  } else {
+    return rec_binary_slice(arr, mid + 1, end, target);
+  }
+}
+
+let elements = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log(rec_binary_slice(elements, 0, elements.length, 4));

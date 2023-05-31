@@ -41,6 +41,7 @@ class Queue {
          current = current.next 
       }
   }
+
 }
 
 let q1 = new Queue()
