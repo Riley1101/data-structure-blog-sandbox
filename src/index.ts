@@ -46,3 +46,4 @@ function shift3(arr: number[], target: number) {
 }
 
 console.log(shift3([1, 2, 3, 4, 6, 7], 3));
+console.log(shift3([1, 2, 3, 4, 6, 7], 3));
