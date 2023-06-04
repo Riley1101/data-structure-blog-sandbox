@@ -57,30 +57,28 @@ export class Tree {
       return this.root;
     }
     let tmp = this.root;
-    let parent = null;
-    while (true) {
+    while (tmp) {
       if (value < tmp.value) {
-        parent = tmp;
-        tmp = tmp.left;
-      } else if (value > tmp.value) {
-        parent = tmp;
-        tmp = tmp.right;
-      } else {
-        if (tmp.left === null && tmp.right === null) {
-          if (parent === null) {
-            this.root = null;
-            return 1;
-          } else if (tmp?.left?.value === value) {
-            parent.left = null;
-            return 1;
-          } else {
-            parent.right = null;
-            return 1;
-          }
+        // go left
+        if (tmp.value === value) {
+          console.log(tmp);
         }
+        tmp = tmp.left;
+      } else {
+        // go right
+        tmp = tmp.right;
       }
     }
   };
+}
+
+function breadthFirstSearch(queue: Node[], arr: number[]) {
+  if (!queue.length) return arr;
+  let node = queue.shift();
+  arr.push(node.value);
+  node.left && queue.push(node.left);
+  node.right && queue.push(node.right);
+  return breadthFirstSearch(queue, arr);
 }
 
 function recursiveSearch(node: Node, value: number) {
@@ -97,6 +95,6 @@ tre.push(2);
 tre.push(5);
 tre.push(7);
 tre.push(9);
-tre.remove(2)
-console.log(tre.root)
-console.log(recursiveSearch(tre.root, 8));
+tre.remove(2);
+console.log(breadthFirstSearch([tre.root], []));
+console.log(tre.root);
