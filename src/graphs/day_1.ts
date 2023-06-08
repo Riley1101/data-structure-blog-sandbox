@@ -33,4 +33,3 @@ export const findMostCommonJobTitle = (
   }
   console.log(jobs);
 };
-findMostCommonJobTitle(11, 3);
