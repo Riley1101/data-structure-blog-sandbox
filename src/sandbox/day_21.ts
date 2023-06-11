@@ -4,6 +4,13 @@ export function countingStairCase(n: number): number {
 }
 
 console.log(countingStairCase(7));
-// 3 => 1,1,1, / 1,2,
-// 4 => 1,1,1,1 /    1,1,2,1 / 1,2,1,1 / 2,1,1,1
-// 5  => 1,1,1,1 /    1,1,2,1 / 1,2,1,1 / 2,1,1,1
+
+export function towerOfHanoi(n: number, from: string, to: string, aux: string) {
+  if (n === 0) {
+    return;
+  }
+  towerOfHanoi(n - 1, from, aux, to);
+  console.log(`Move ${n} from ${from} to ${to}`);
+  towerOfHanoi(n - 1, aux, to, from);
+}
+towerOfHanoi(3, "A", "C", "B");

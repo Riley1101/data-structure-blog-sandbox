@@ -45,4 +45,3 @@ export function findShortestPath(maze: number[][], [ xA, yA ]: number[],
   }
   console.log(visited);
 }
-findShortestPath(fourByFour, [ 0, 0 ], [ 3, 3 ]);
