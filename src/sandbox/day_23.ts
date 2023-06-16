@@ -74,16 +74,16 @@ export class Tree {
     let p = null;
     while (c) {
       if (c.value === value) {
-        if(c.left !== null && c.right !== null){
-           let ancisor = c.right;                 
-           ancisor.left = c.left
-           if(value < p.value){
-               p.left = ancisor;
-               return p.value
-           }else{
-               p.right = ancisor
-               return p.value
-           }
+        if (c.left !== null && c.right !== null) {
+          let ancisor = c.right;
+          ancisor.left = c.left;
+          if (value < p.value) {
+            p.left = ancisor;
+            return p.value;
+          } else {
+            p.right = ancisor;
+            return p.value;
+          }
         }
         // remove with one node
         else if (c.left !== null && c.right === null) {
@@ -159,3 +159,62 @@ tr.print_tree();
 tr.remove(8);
 tr.remove(9);
 tr.print_tree();
+
+export function inOrder(root: Node, result: number[]) {
+  if (!root) return result;
+  if (root.left) {
+    result = inOrder(root.left, result);
+  }
+  result.push(root.value);
+  if (root.right) {
+    result = inOrder(root.right, result);
+  }
+  return result;
+}
+
+export function postOrder(root: Node, result: number[]) {
+  if (!root) return result;
+  if (root.left) {
+    result = postOrder(root.left, result);
+  }
+  if (root.right) {
+    result = postOrder(root.right, result);
+  }
+  result.push(root.value);
+  return result;
+}
+export function preOrderTaversal2(root: Node, result: number[]) {
+  if (!root) return result;
+  result.push(root.value);
+  if (root.left) {
+    result = preOrderTaversal2(root.left, result);
+  }
+  if (root.right) {
+    result = preOrderTaversal2(root.right, result);
+  }
+  return result;
+}
+
+export function preOrderTraversal(root: Node): number[] {
+  if (!root) {
+    return [];
+  }
+  let result = [];
+  let stack: Node[] = [root];
+  while (stack.length) {
+    let node = stack.pop();
+    if (node.left) {
+      stack.push(node.left);
+    }
+    result.push(node.value);
+    if (node.right) {
+      stack.push(node.right);
+    }
+  }
+  return result;
+}
+
+console.log(preOrderTraversal(tr.root), "REc");
+console.log(preOrderTaversal2(tr.root, []));
+console.log(inOrder(tr.root, []));
+console.log(postOrder(tr.root, []));
