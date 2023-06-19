@@ -37,6 +37,7 @@ export function selectionSort(arr: number[]) {
   return arr;
 }
 
+
 function merge(left: number[], right: number[]) {
   let result = [];
   while (left.length && right.length) {
@@ -48,6 +49,7 @@ function merge(left: number[], right: number[]) {
   }
   return result.concat(left, right);
 }
+
 export function mergeSort(arr: number[]) {
   if (arr.length < 2) return arr;
   let mid = Math.floor(arr.length / 2);
@@ -86,3 +88,4 @@ export function partition(arr: number[], low: number, high: number) {
 export function quickSort_3(arr: number[]) {
   qs(arr, 0, arr.length);
 }
+

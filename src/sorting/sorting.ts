@@ -11,6 +11,7 @@ export function insertion_sort(arr: number[]) {
   }
   return arr;
 }
+
 export function bubble_sort(arr: number[]) {
   let swapped = false;
   for (let i = 0; i < arr.length; i++) {
@@ -29,6 +30,7 @@ export function bubble_sort(arr: number[]) {
   return arr;
 }
 
+
 function merge(left: number[], right: number[]) {
   let result = [];
   while (left.length && right.length) {
@@ -40,6 +42,7 @@ function merge(left: number[], right: number[]) {
   }
   return result.concat(left, right);
 }
+
 export function merge_sort(arr: number[]) {
   if (arr.length < 2) return arr;
   let length = arr.length;
@@ -82,8 +85,10 @@ export function quick_sort_2(arr: number[]) {
       rightArr.push(arr[i]);
     }
   }
+
   let sortedLeft = quick_sort_2(leftArr);
   let sortedRight = quick_sort_2(rightArr);
   return sortedLeft.concat(pivot, sortedRight);
 }
+
 console.log(quick_sort_2([1,3,2,6,4,12,10]))
