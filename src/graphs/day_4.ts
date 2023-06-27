@@ -16,15 +16,15 @@ export function getMostPopularJob(personId: number, degrees: number) {
   for (let i = 0; i < degrees; i++) {
     let new_queue = [];
     while (queue.length) {
-      const user = getUser(queue.shift());
-      for (let j = 0; i < user.connections.length; j++) {
-        const conn = user.connections[j];
-        if (!seen.has(conn)) {
-          new_queue.push(conn);
-          seen.add(conn);
+        const user = getUser(queue.shift());
+        for (let j = 0; i < user.connections.length; j++) {
+            const conn = user.connections[j];
+            if (!seen.has(conn)) {
+                new_queue.push(conn);
+                seen.add(conn);
+            }
         }
-      }
-      jobs[user.title] = jobs[user.title] ? jobs[user.title] + 1 : 1;
+        jobs[user.title] = jobs[user.title] ? jobs[user.title] + 1 : 1;
     }
     queue = new_queue;
   }
