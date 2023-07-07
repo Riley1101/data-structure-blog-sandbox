@@ -1,5 +1,5 @@
 # Data structure blog sandbox
-My data structure playground for while blogging CS contents on my personal site
+My data structure playground while blogging CS contents on my personal site
 
 ## Roadmap
 I am gonna be blogging continuously on these topics
