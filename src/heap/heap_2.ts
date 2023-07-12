@@ -30,3 +30,4 @@ export function createMaxHeap(array: number[]) {
     heapify(array, index, array.length);
   }
 }
+console.log()
