@@ -12,7 +12,8 @@ export class MinHeap {
     this.length++;
   }
   delete(): number {
-    if (this.length === 0) return -1;
+    if (this.length === 0)
+      return -1;
     let out = this.data[0];
     this.length--;
     if (this.length === 0) {
@@ -25,7 +26,8 @@ export class MinHeap {
   }
 
   private heapifyUp(idx: number) {
-    if (idx == 0) return;
+    if (idx == 0)
+      return;
     const parent = this.parent(idx);
     const parentV = this.data[parent];
     const current = this.data[idx];
@@ -59,15 +61,9 @@ export class MinHeap {
     }
   }
 
-  private parent(idx: number): number {
-    return Math.floor((idx - 1) / 2);
-  }
-  private leftChild(idx: number): number {
-    return idx * 2 + 1;
-  }
-  private rightChild(idx: number): number {
-    return idx * 2 + 2;
-  }
+  private parent(idx: number): number { return Math.floor((idx - 1) / 2); }
+  private leftChild(idx: number): number { return idx * 2 + 1; }
+  private rightChild(idx: number): number { return idx * 2 + 2; }
 }
 
 let heap = new MinHeap();
@@ -80,3 +76,4 @@ heap.insert(1);
 heap.insert(8);
 heap.insert(7);
 console.log(heap);
+
