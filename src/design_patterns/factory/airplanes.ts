@@ -66,10 +66,23 @@ export class PlaneFactory {
   }
 }
 
+const planes = {
+  air: AirPlane,
+  boreing: BoreingPlane,
+};
+
+export class PlaneFactory_2 {
+  static createPlane(name: string, ...args: any[]): Plane {
+    const instance = Object.create(planes[name].prototype);
+    instance.constructor.apply(instance, args);
+    return instance;
+  }
+}
+
 let airplane = PlaneFactory.createPlane("air");
 console.log(airplane.fly());
 console.log(airplane.land());
 
-let boreing = PlaneFactory.createPlane("boreing");
+let boreing = PlaneFactory_2.createPlane("boreing");
 console.log(boreing.fly());
 console.log(boreing.land());
