@@ -108,6 +108,7 @@ export class RoundedThemedApplication extends Application {
 }
 
 let rounded_app = new RoundedThemedApplication("Welcome to android", "android");
+
 rounded_app.dialog.createButton();
 rounded_app.dialog.render();
 console.log(rounded_app.dialog.getShape());
