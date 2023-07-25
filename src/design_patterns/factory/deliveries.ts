@@ -64,6 +64,7 @@ export class Application {
   private push(deli: Delivery) {
     this.data.push(deli);
   }
+
   order(id: string, type: "land" | "air") {
     let factory = new DeliveryFactory();
     let delivery = factory.createDelivery(type);
