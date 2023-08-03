@@ -47,10 +47,13 @@ export class VideoConvector {
   }
 }
 export class VideoConversionFacade {
-  main() {
+  exec() {
     let file = new VideoFile("file");
     let converter = new VideoConvector(file, "mp4");
     converter.convert();
     converter.save();
   }
 }
+
+let app = new VideoConversionFacade();
+app.exec();
