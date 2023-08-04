@@ -72,5 +72,5 @@ function plants1000Apples() {
 plants1000Apples();
 
 for (let i = 0; i < forest.tress.length - 1; i++) {
-  console.log(Object.is(forest.tress[i].type, forest.tress[i + 1].type))
+  console.log(Object.is(forest.tress[i].type, forest.tress[i + 1].type));
 }
