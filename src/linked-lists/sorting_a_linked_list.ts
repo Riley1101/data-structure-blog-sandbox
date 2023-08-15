@@ -59,11 +59,6 @@ export function sortLinkedList(list: LinkedList) {
 }
 sortLinkedList(list);
 
-for(let i = 0; i < 3 ; i ++ ){
-    let prev = list.head;
-    console.log(prev.value)
-    prev = prev.next
-}
 
 function traverseLinkedList(list: Node) {
   if (list === null) {
@@ -72,7 +67,7 @@ function traverseLinkedList(list: Node) {
   console.log(list.value);
   return traverseLinkedList(list?.next);
 }
-// traverseLinkedList(list.head);
+
 
 export function insertionSort(arr: number[]) {
   for (let i = 0; i < arr.length; i++) {

@@ -5,6 +5,7 @@ class Node {
     this.value = value;
   }
 }
+
 class LinkedList {
   head: Node;
   length: number;
@@ -12,6 +13,7 @@ class LinkedList {
     this.head = null;
     this.length = 0;
   }
+
   add_front(value: string) {
     let newNode = new Node(value);
     newNode.next = this.head;
@@ -19,6 +21,7 @@ class LinkedList {
     this.length += 1;
     return newNode;
   }
+
   add_back(value: string) {
     let newNode = new Node(value);
     let current = this.head;
@@ -28,6 +31,7 @@ class LinkedList {
     current.next = newNode;
     this.length += 1;
   }
+
   getNodes() {
     let arr: string[] = [];
     let current = this.head;
@@ -38,6 +42,7 @@ class LinkedList {
     console.log(arr);
     return arr;
   }
+
   getByValue(value: string): Node | Error {
     let current = this.head;
     while (current.next) {
@@ -48,6 +53,7 @@ class LinkedList {
     }
     return new Error("item not exists");
   }
+
   insertByIndex(index: number, value: string) {
     if (this.length < index) return new Error("Insert is impossible");
     let current = this.head;
@@ -59,6 +65,7 @@ class LinkedList {
     current.next = newNode;
     this.length += 1;
   }
+
   insertBehindValue(target: string, value: string) {
     let current = this.head;
     while (current.next) {
@@ -72,6 +79,7 @@ class LinkedList {
       current = current.next;
     }
   }
+
   deleteByValue(value: string) {
     let current = this.head;
     let prev = null;
@@ -88,6 +96,7 @@ class LinkedList {
     }
   }
 }
+
 let node = new LinkedList();
 node.add_front("Hello");
 node.add_front("I");
@@ -97,8 +106,8 @@ node.add_front("World !");
 node.add_back(" Brother ");
 node.getByValue("live");
 node.insertByIndex(3, "Medium");
-node.insertBehindValue("in", "AfterIn");
-node.deleteByValue("I");
+node.insertBehindValue("item", "AfterIn");
+node.deleteByValue("tiem");
 node.getNodes();
 
 export {};

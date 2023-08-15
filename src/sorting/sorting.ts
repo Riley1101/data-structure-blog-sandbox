@@ -30,7 +30,6 @@ export function bubble_sort(arr: number[]) {
   return arr;
 }
 
-
 function merge(left: number[], right: number[]) {
   let result = [];
   while (left.length && right.length) {
@@ -78,7 +77,7 @@ export function quick_sort_2(arr: number[]) {
   let pivot = arr[0];
   let leftArr = [];
   let rightArr = [];
-  for (let i = 1; i < arr.length ; i++) {
+  for (let i = 1; i < arr.length; i++) {
     if (arr[i] < pivot) {
       leftArr.push(arr[i]);
     } else {
@@ -91,4 +90,5 @@ export function quick_sort_2(arr: number[]) {
   return sortedLeft.concat(pivot, sortedRight);
 }
 
-console.log(quick_sort_2([1,3,2,6,4,12,10]))
+console.log(quick_sort_2([1, 3, 2, 6, 4, 12, 10]));
+

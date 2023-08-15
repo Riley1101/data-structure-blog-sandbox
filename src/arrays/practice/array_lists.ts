@@ -43,9 +43,8 @@ al.push(2);
 al.push(3);
 al.push(4);
 al.push(7);
-
-console.log(al);
 al.pop();
 
 console.log(al);
 
+const a = {};
