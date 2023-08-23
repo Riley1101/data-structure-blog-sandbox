@@ -1,4 +1,4 @@
-function test() {
+export function test() {
   var a = 12;
   var b = 24;
   var c = a + b;

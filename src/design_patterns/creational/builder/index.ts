@@ -3,7 +3,7 @@ export interface Builder {
   addNitro(mili: number): Builder;
   addEngine(type: string): Builder;
   addGps(type: boolean): Builder;
-  getInfo(): Car;
+  build(): Car;
 }
 
 export interface Car {
@@ -46,7 +46,7 @@ export class CarBuilder implements Builder {
     return this;
   }
 
-  getInfo(): Car {
+  build(): Car {
     return {
       seats: this.seats,
       nitro: this.nitro,
@@ -56,10 +56,6 @@ export class CarBuilder implements Builder {
   }
 }
 
-export interface Engineer {
-  makeSportCar(): Car;
-  makeFamilyCar(): Car;
-}
 
 export class Application {
   private builder: Builder;
@@ -74,7 +70,7 @@ export class Application {
       .addGps(true)
       .addNitro(1000)
       .addSeats(2)
-      .getInfo();
+      .build();
   }
 
   makeFamilyCar(): Car {
@@ -83,7 +79,7 @@ export class Application {
       .addGps(true)
       .addNitro(0)
       .addSeats(4)
-      .getInfo();
+      .build();
   }
 }
 

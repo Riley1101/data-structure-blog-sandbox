@@ -95,6 +95,7 @@ export class Radio implements Device {
   volume: number;
 }
 
+type A = number;
 let radio = new Radio();
 let advancedRadioRemote = new AdvancedRemoteControl(radio);
 advancedRadioRemote.volumeDown();

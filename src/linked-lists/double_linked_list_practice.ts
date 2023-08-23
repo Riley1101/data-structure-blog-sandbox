@@ -1,3 +1,6 @@
+interface T{
+    value: string;
+}
 class Node {
   value: string;
   next: Node | null;
@@ -140,3 +143,8 @@ node.insertAt("love", 3);
 node.removeByValue("Typo");
 node.printValues_2();
 export {};
+let value : T = {
+    value : "Hello"
+}
+
+console.log(value)
