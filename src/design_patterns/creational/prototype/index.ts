@@ -18,3 +18,24 @@ console.log(obj.getShape());
 
 let obj2 = obj.clone(40, 40);
 console.log(obj2.getShape());
+
+class Car {
+  make: string;
+  model: string;
+  constructor(make: string, model: string) {
+    this.make = make;
+    this.model = model;
+  }
+}
+
+class Driver {
+  name: string;
+  car: Car;
+  constructor(name: string, car: Car) {
+    this.name = name;
+    this.car = car;
+  }
+}
+
+let car = new Car("Toyota", "Camry");
+let driver = new Driver("John", car);

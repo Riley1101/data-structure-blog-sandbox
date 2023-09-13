@@ -1,34 +1,32 @@
-export class Shape {
-  x: string;
-  y: string;
-  constructor(source: Shape) {
-    this.x = source.x;
-    this.y = source.y;
+interface Prototype {
+  message: string;
+  greet(): void;
+  clone(): Prototype;
+}
+
+class Prototype {
+  message: string;
+  constructor(message: string) {
+    this.message = message;
   }
-  clone(): Shape {
-    return new Shape(this);
+  greet() {
+    console.log(this.message);
+  }
+  clone(): Prototype {
+    return Object.create(this);
   }
 }
 
-export class Rectangle extends Shape {
-  constructor(source: Rectangle) {
-    super(source);
-    this.x = source.x;
-    this.y = source.y;
-  }
-  clone(): Shape {
-    return new Rectangle(this);
-  }
+const prototype = new Prototype("Hello");
+prototype.greet();
+
+interface Prototype {
+  goodBye(): void;
 }
 
-export class Circle extends Shape {
-  constructor(source: Circle) {
-    super(source);
-    this.x = source.x;
-    this.y = source.y;
-  }
-  clone(): Shape {
-    return new Circle(this);
-  }
-}
+let clone: Prototype = prototype.clone();
 
+clone.goodBye = function() {
+    console.log("Goodbye");
+}
+clone.goodBye();

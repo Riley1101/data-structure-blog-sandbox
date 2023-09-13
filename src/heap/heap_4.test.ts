@@ -1,0 +1,83 @@
+class MaxHeap {
+  values: number[];
+  length: number;
+  constructor() {
+    this.values = [];
+    this.length = 0;
+  }
+
+  add(value: number) {
+    this.values[this.length] = value;
+    this.heapifyUp(this.length++);
+  }
+
+  remove() {
+    if (this.length == 0) {
+      return;
+    }
+    let out = this.values[0];
+    this.length--;
+    if (this.length == 0) {
+      this.values = [];
+      return out;
+    }
+    this.values[0] = this.values[this.length];
+    this.heapifyDown(0);
+    return out;
+  }
+
+  private heapifyDown(idx: number) {
+    let l = this.leftChild(idx);
+    let r = this.rightChild(idx);
+    let largest = idx;
+    let lV = this.values[l];
+    let rV = this.values[r];
+    let v = this.values[idx];
+    if (l < this.length && lV > rV) {
+      largest = l;
+    }
+    if (r < this.length && rV > lV) {
+      largest = r;
+    }
+    if (largest !== idx) {
+      this.values[idx] = this.values[largest];
+      this.values[largest] = v;
+      this.heapifyDown(largest);
+    }
+  }
+
+  private heapifyUp(idx: number) {
+    let p = this.parent(idx);
+    let pV = this.values[p];
+    let V = this.values[idx];
+    if (V > pV) {
+      this.values[p] = V;
+      this.values[idx] = pV;
+      this.heapifyUp(p);
+    }
+  }
+
+  private leftChild(idx: number) {
+    return 2 * idx + 1;
+  }
+  private rightChild(idx: number) {
+    return 2 * idx + 2;
+  }
+  private parent(idx: number) {
+    return Math.floor((idx - 1) / 2);
+  }
+}
+
+let h = new MaxHeap();
+h.add(98);
+h.add(10);
+h.add(23);
+h.add(95);
+h.add(17);
+h.add(50);
+console.log(h.remove());
+console.log(h.remove());
+console.log(h.remove());
+console.log(h.remove());
+console.log(h.remove());
+console.log(h.remove());
