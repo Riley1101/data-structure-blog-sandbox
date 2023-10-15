@@ -50,4 +50,3 @@ console.log(shift3([1, 2, 3, 4, 6, 7], 3));
 console.log(paris([1, 2, 3, 4, 6, 7], 3));
 
 console.log(shift2([1, 2, 3, 4, 6, 7], 3));
-

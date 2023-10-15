@@ -1,5 +1,5 @@
 export class Database {
-  instance: Database;
+  private instance: Database;
   queries: string[];
   constructor() {
     this.queries = [];

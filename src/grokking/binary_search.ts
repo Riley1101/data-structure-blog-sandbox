@@ -20,7 +20,7 @@ export function binarySearch_2(
   arr: number[],
   target: number,
   start: number,
-  end: number
+  end: number,
 ) {
   let mid = Math.floor((start + end) / 2);
   if (arr[mid] === target) {

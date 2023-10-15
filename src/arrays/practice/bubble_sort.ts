@@ -91,21 +91,21 @@ function bubbleSort_6(arr: number[]) {
 }
 
 function bubbleSort_7(arr: number[]) {
-    let swapped = false;
-    for(let i = 0; i < arr.length; i ++ ){
-        for(let j = 0; j< arr.length - i;j++){
-            if(arr[j] > arr[j + 1]){
-                let tmp = arr[j]
-                arr[j] = arr[j + 1]
-                arr[i] = tmp
-                swapped = true
-            }
-        }
-        if(!swapped){
-            break
-        }
+  let swapped = false;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - i; j++) {
+      if (arr[j] > arr[j + 1]) {
+        let tmp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[i] = tmp;
+        swapped = true;
+      }
     }
-    console.log(arr)
+    if (!swapped) {
+      break;
+    }
+  }
+  console.log(arr);
 }
 
 bubbleSort_7([1, 3, 2, 5, 4, 8, 7]);

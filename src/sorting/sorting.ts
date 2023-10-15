@@ -89,6 +89,4 @@ export function quick_sort_2(arr: number[]) {
   let sortedRight = quick_sort_2(rightArr);
   return sortedLeft.concat(pivot, sortedRight);
 }
-
 console.log(quick_sort_2([1, 3, 2, 6, 4, 12, 10]));
-

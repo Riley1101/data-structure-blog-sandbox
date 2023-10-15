@@ -68,16 +68,11 @@ class MaxHeap {
   }
 }
 
+let nums = [5, 3, 73, 1];
 let h = new MaxHeap();
-h.add(98);
-h.add(10);
-h.add(23);
-h.add(95);
-h.add(17);
-h.add(50);
-console.log(h.remove());
-console.log(h.remove());
-console.log(h.remove());
+for (let i = 0; i < nums.length; i++) {
+  h.add(nums[i]);
+}
 console.log(h.remove());
 console.log(h.remove());
 console.log(h.remove());
