@@ -51,6 +51,7 @@ function isPrime(value) {
   isPrime.answers.set(value, prime);
   return prime;
 }
+
 let res = isPrime(3);
 let res2 = isPrime(4);
 
@@ -67,9 +68,42 @@ function fib(num) {
     return num;
   }
   let res = num + fib(num - 1);
-  console.log("i gets called so many time", num);
   fib.cache.set(num, res);
   return res;
 }
 
-console.log(fib.cache)
+/**
+ * defining functions
+ */
+let f = new Function("a", "b", "return a + b");
+
+function* myfun() {
+  yield 1;
+}
+
+function myFun(num) {
+  console.log(num);
+  return 1;
+}
+
+function sum() {
+  var sum = 0;
+  for (let i = 0; i < arguments.length; i++) {
+    sum += arguments[i];
+  }
+  console.log(sum);
+}
+
+let ninjaObj = {
+  skulk: function (name) {
+    console.log(" i gets call " + name);
+  },
+  skulk1: function (name) {
+    console.log(" i gets call");
+  },
+};
+
+function skulk(n) {
+  console.log(this.skulk(n));
+}
+skulk.apply(ninjaObj, ["hello"]);
